@@ -227,6 +227,49 @@
     letter-spacing: 3px;
     line-height: 2;
 }
+ /* STARVEX Luxury Upgrade */
+:root {
+  --gold: #f5c451;
+  --purple: #9b5cff;
+  --dark: #090710;
+}
+
+body {
+  background-color: var(--dark);
+}
+
+header {
+  border-bottom: 1px solid rgba(245, 196, 81, 0.3);
+}
+
+h1, h2 {
+  color: var(--gold);
+}
+
+button, .btn, a.button {
+  transition: all 0.25s ease;
+}
+
+button:hover, .btn:hover, a.button:hover {
+  box-shadow: 0 0 18px rgba(155, 92, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.product, .product-card, .card {
+  border: 1px solid rgba(155, 92, 255, 0.3);
+  border-radius: 16px;
+  transition: all 0.25s ease;
+}
+
+.product:hover, .product-card:hover, .card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(155, 92, 255, 0.18);
+}
+
+.price {
+  color: var(--gold);
+  font-weight: bold;
+  }
   </style>
 </head>
 

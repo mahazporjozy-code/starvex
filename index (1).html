@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STARVEX | فروشگاه دیجیتال</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #08080d;
+      color: #ffffff;
+      line-height: 1.9;
+    }
+
+    header {
+      padding: 24px 16px;
+      text-align: center;
+      background: #101019;
+      border-bottom: 1px solid #8b5cf6;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: #b58aff;
+      text-shadow: 0 0 18px rgba(181, 138, 255, 0.35);
+    }
+
+    header p {
+      color: #b9b9c9;
+      font-size: 12px;
+    }
+
+    .hero {
+      padding: 55px 20px;
+      text-align: center;
+      background: radial-gradient(
+        circle at top,
+        #30204c,
+        #08080d 75%
+      );
+    }
+
+    .hero h1 {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: #c49aff;
+    }
+
+    .hero p {
+      color: #c5c5d3;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 25px;
+      background: linear-gradient(90deg, #7828d8, #b15cff);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(120, 40, 216, 0.25);
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 32px 0 22px;
+      font-size: 22px;
+    }
+
+    .section-title span {
+      color: #b58aff;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 0 14px;
+    }
+
+    .product {
+      background: linear-gradient(145deg, #191326, #0c0b12);
+      border: 1px solid #7541a8;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(120, 40, 220, 0.12);
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .product h3 {
+      color: #d9b8ff;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      color: #e5e0ef;
+      font-size: 12px;
+      line-height: 1.9;
+      margin-bottom: 8px;
+    }
+
+    .product a {
+      display: block;
+      text-align: center;
+      background: linear-gradient(90deg, #7828d8, #b15cff);
+      color: white;
+      padding: 10px 5px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 14px;
+    }
+
+    .trust {
+      margin: 30px 14px;
+      padding: 22px 16px;
+      background: linear-gradient(145deg, #191326, #101019);
+      border: 1px solid #38264d;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .trust h2 {
+      color: #c7a4ff;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .trust p {
+      font-size: 13px;
+      color: #c5c5d3;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 25px 15px;
+      text-align: center;
+      background: #101019;
+      border-top: 1px solid #38264d;
+      color: #a5a5b5;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: #c7a4ff;
+    }
+
+    @media (max-width: 360px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 23px;
+      }
+    }
+/* STARVEX — SIGNATURE LUXURY */
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 10px;
+    text-align: center;
+    gap: 8px;
+}
+
+.logo-name {
+    font-family: Arial, sans-serif;
+    font-size: clamp(32px, 9vw, 46px);
+    font-weight: 900;
+    letter-spacing: 7px;
+    padding-left: 7px;
+    line-height: 1.5;
+    background: linear-gradient(
+        110deg,
+        #a47b2d,
+        #fff0b2,
+        #d5ae52,
+        #fff8dc,
+        #b38b3c
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 3px 15px rgba(214, 180, 92, 0.18));
+}
+
+.logo-line {
+    width: 125px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d6b45c 35%,
+        #b79bdf 65%,
+        transparent
+    );
+}
+
+.logo-tagline {
+    color: #c1addf;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    line-height: 2;
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+<div class="logo">
+  <span class="logo-symbol">S</span>
+  <span class="logo-name">STARVEX</span>
+  <span class="logo-tagline">PREMIUM DIGITAL EXPERIENCE</span>
+</div>
+    <p>تجربه‌ای متفاوت در دنیای دیجیتال</p>
+  </header>
+
+  <section class="hero">
+    <h1>به دنیای <span>STARVEX</span> خوش آمدید</h1>
+    <p>خدمات دیجیتال تلگرام، با تجربه‌ای ساده و حرفه‌ای</p>
+    <a class="button" href="#products">مشاهده محصولات</a>
+  </section>
+
+  <h2 class="section-title">
+    محصولات <span>ما</span>
+  </h2>
+
+  <section class="products" id="products">
+
+    <div class="product">
+      <div class="icon">⭐</div>
+      <h3>تلگرام پریمیوم</h3>
+      <p>۳ ماهه: ۳٬۵۲۵٬۰۰۰ تومان</p>
+      <p>۶ ماهه: ۴٬۶۰۱٬۰۰۰ تومان</p>
+      <p>۱ ساله: ۸٬۱۰۰٬۰۰۰ تومان</p>
+      <a href="https://t.me/StarvexMahaz">سفارش پریمیوم</a>
+    </div>
+
+    <div class="product">
+      <div class="icon">🚀</div>
+      <h3>بوست تلگرام</h3>
+      <p>۱۴ روزه: ۵۹٬۰۰۰ تومان</p>
+      <p>۳۰ روزه: ۱۲۰٬۰۰۰ تومان</p>
+      <p>۹۰ روزه: ۲۲۰٬۰۰۰ تومان</p>
+      <p>۱۸۰ روزه: ۳۹۰٬۰۰۰ تومان</p>
+      <p>حداقل سفارش: ۱۰ بوست</p>
+      <a href="https://t.me/StarvexMahaz">سفارش بوست</a>
+    </div>
+
+    <div class="product">
+      <div class="icon">💎</div>
+      <h3>تلگرام استارز</h3>
+      <p>هر استارز: ۴٬۵۰۰ تومان</p>
+      <p>حداقل سفارش: ۵۰ استارز</p>
+      <a href="https://t.me/StarvexMahaz">سفارش استارز</a>
+    </div>
+
+    <div class="product">
+      <div class="icon">🎁</div>
+      <h3>خدمات ویژه</h3>
+      <p>برای اطلاع از خدمات بیشتر</p>
+      <a href="https://t.me/StarvexMahaz">تماس با ما</a>
+    </div>
+
+  </section>
+
+  <section class="trust">
+    <h2>چرا STARVEX؟</h2>
+    <p>
+      طراحی مدرن، دسترسی آسان به محصولات و ارتباط مستقیم با پشتیبانی
+    </p>
+  </section>
+
+  <footer>
+    <p>تمام حقوق متعلق به <strong>STARVEX</strong> است.</p>
+    <p>برای سفارش و پشتیبانی از طریق تلگرام با ما در ارتباط باشید.</p>
+  </footer>
+
+</body>
+</html>

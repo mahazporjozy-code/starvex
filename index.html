@@ -307,6 +307,99 @@ button:hover, .btn:hover, a.button:hover {
 .product a:hover {
   box-shadow: 0 0 16px rgba(168, 85, 247, 0.45);
 }
+/* STARVEX — Luxury Motion Experience */
+
+@keyframes starvexReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes starvexGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(245, 196, 81, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(245, 196, 81, 0.16);
+  }
+}
+
+.hero {
+  animation: starvexReveal 0.9s ease-out both;
+}
+
+.section-title {
+  animation: starvexReveal 0.8s ease-out both;
+}
+
+.product {
+  animation: starvexReveal 0.8s ease-out both;
+  animation-fill-mode: both;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.product:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.product:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.product:nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  border-color: #f5c451;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.3),
+    0 0 18px rgba(245, 196, 81, 0.12);
+}
+
+.product a {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.product a:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.35);
+}
+
+.product a:active,
+.button:active {
+  transform: scale(0.97);
+}
+
+.logo-name {
+  animation: starvexGlow 4s ease-in-out infinite;
+}
+
+.trust {
+  animation: starvexReveal 0.9s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+    }  
   </style>
 </head>
 

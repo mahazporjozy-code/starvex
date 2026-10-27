@@ -42,11 +42,34 @@ def main_menu():
     ])
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
+    args = context.args
+
+    if args and args[0] in ("premium", "boost", "stars"):
+        product = args[0]
+
+        if product == "premium":
+            message = "👑 بخش تلگرام پریمیوم انتخاب شد.\n\nپلن موردنظرت رو انتخاب کن."
+        elif product == "boost":
+            message = "🚀 بخش تلگرام بوست انتخاب شد.\n\nپلن موردنظرت رو انتخاب کن."
+        else:
+            message = "⭐ بخش تلگرام استارز انتخاب شد.\n\nبرای سفارش استارز ادامه بده."
+
+        keyboard = InlineKeyboardMarkup([
+            [InlineKeyboardButton("🛍 ادامه سفارش", callback_data=product)],
+            [InlineKeyboardButton("🏠 منوی اصلی", callback_data="main_menu")],
+            [InlineKeyboardButton("🛟 پشتیبانی", url=SUPPORT)],
+        ])
+
+        await update.effective_message.reply_text(
+            message,
+            reply_markup=keyboard
+        )
+        return
+
+    await update.effective_message.reply_text(
         WELCOME,
         reply_markup=main_menu()
     )
-
 async def buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()

@@ -17,6 +17,7 @@ from telegram.ext import (
 logging.basicConfig(level=logging.INFO)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID")
 SUPPORT = "https://t.me/StarvexMahaz"
 
 WELCOME = """
@@ -74,6 +75,11 @@ async def buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
+    # Handle navigation callbacks before product callbacks.
+    if query.data in ("home", "main_menu"):
+        await query.message.reply_text(WELCOME, reply_markup=main_menu())
+        return
+
     if query.data == "premium":
         text = (
             "👑 تلگرام پریمیوم\n\n"
@@ -122,25 +128,53 @@ async def buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("🔙 منوی اصلی", callback_data="home")],
     ])
 
-    if query.data == "home":
-        await query.message.reply_text(WELCOME, reply_markup=main_menu())
-    else:
-        await query.message.reply_text(text, reply_markup=keyboard)
+    await query.message.reply_text(text, reply_markup=keyboard)
 
 async def receive_order(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.user_data.get("waiting_order"):
         return
 
-    context.user_data["waiting_order"] = False
-    order = update.message.text
+    order = (update.message.text or "").strip()
+    if not order:
+        await update.message.reply_text("لطفاً جزئیات سفارش را به‌صورت متن ارسال کن.")
+        return
 
-    await update.message.reply_text(
-        "✅ درخواستت ثبت شد!\n\n"
-        "برای هماهنگی و نهایی‌کردن سفارش با پشتیبانی تماس بگیر:\n"
-        + SUPPORT
+    if not ADMIN_CHAT_ID:
+        context.user_data["waiting_order"] = False
+        logging.error("Order intake unavailable: ADMIN_CHAT_ID is not configured.")
+        await update.message.reply_text(
+            "⚠️ ثبت خودکار سفارش در حال حاضر فعال نیست.\n"
+            "برای ثبت و پیگیری درخواست، مستقیماً با پشتیبانی تماس بگیر:\n"
+            + SUPPORT
+        )
+        return
+
+    customer = update.effective_user
+    username = f"@{customer.username}" if customer.username else "ندارد"
+    admin_message = (
+        "🛒 درخواست سفارش جدید STARVEX\\n\\n"
+        f"شناسه کاربر: {customer.id}\\n"
+        f"نام کاربری: {username}\\n"
+        f"نام: {customer.full_name}\\n\\n"
+        f"جزئیات درخواست:\\n{order}"
     )
 
-    logging.info("Order request received from user ID %s", update.effective_user.id)
+    try:
+        await context.bot.send_message(chat_id=ADMIN_CHAT_ID, text=admin_message)
+    except Exception:
+        logging.exception("Failed to deliver order from user ID %s", customer.id)
+        await update.message.reply_text(
+            "⚠️ ارسال درخواست به مدیریت انجام نشد. لطفاً دوباره تلاش کن "
+            "یا با پشتیبانی تماس بگیر:\\n" + SUPPORT
+        )
+        return
+
+    context.user_data["waiting_order"] = False
+    await update.message.reply_text(
+        "✅ درخواستت با موفقیت برای مدیریت ارسال شد. "
+        "برای پیگیری بیشتر می‌توانی با پشتیبانی در ارتباط باشی:\\n" + SUPPORT
+    )
+    logging.info("Order request delivered for user ID %s", customer.id)
 
 def main():
     if not BOT_TOKEN:

@@ -152,11 +152,11 @@ async def receive_order(update: Update, context: ContextTypes.DEFAULT_TYPE):
     customer = update.effective_user
     username = f"@{customer.username}" if customer.username else "ندارد"
     admin_message = (
-        "🛒 درخواست سفارش جدید STARVEX\\n\\n"
-        f"شناسه کاربر: {customer.id}\\n"
-        f"نام کاربری: {username}\\n"
-        f"نام: {customer.full_name}\\n\\n"
-        f"جزئیات درخواست:\\n{order}"
+        "🛒 درخواست سفارش جدید STARVEX\n\n"
+        f"شناسه کاربر: {customer.id}\n"
+        f"نام کاربری: {username}\n"
+        f"نام: {customer.full_name}\n\n"
+        f"جزئیات درخواست:\n{order}"
     )
 
     try:
@@ -165,14 +165,14 @@ async def receive_order(update: Update, context: ContextTypes.DEFAULT_TYPE):
         logging.exception("Failed to deliver order from user ID %s", customer.id)
         await update.message.reply_text(
             "⚠️ ارسال درخواست به مدیریت انجام نشد. لطفاً دوباره تلاش کن "
-            "یا با پشتیبانی تماس بگیر:\\n" + SUPPORT
+            "یا با پشتیبانی تماس بگیر:\n" + SUPPORT
         )
         return
 
     context.user_data["waiting_order"] = False
     await update.message.reply_text(
         "✅ درخواستت با موفقیت برای مدیریت ارسال شد. "
-        "برای پیگیری بیشتر می‌توانی با پشتیبانی در ارتباط باشی:\\n" + SUPPORT
+        "برای پیگیری بیشتر می‌توانی با پشتیبانی در ارتباط باشی:\n" + SUPPORT
     )
     logging.info("Order request delivered for user ID %s", customer.id)
 

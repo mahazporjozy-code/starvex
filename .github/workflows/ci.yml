@@ -1,4 +1,4 @@
-name: STARVEX CI
+name: STARVEX CI Diagnostics
 
 on:
   pull_request:
@@ -6,11 +6,14 @@ on:
       - main
   push:
     branches:
+      - main
       - "ci/**"
   workflow_dispatch:
 
 permissions:
   contents: read
+  issues: write
+  pull-requests: write
 
 concurrency:
   group: starvex-ci-${{ github.ref }}
@@ -18,7 +21,7 @@ concurrency:
 
 jobs:
   python-checks:
-    name: Python syntax and tests
+    name: Python checks with diagnostic report
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -38,14 +41,113 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Check Python syntax
-        run: python -m compileall -q bot.py
-
-      - name: Run unit tests when present
+      - name: Run checks and capture exact diagnostics
+        id: checks
+        continue-on-error: true
         shell: bash
         run: |
+          set +e
+          : > diagnostics.txt
+
+          echo "=== Python syntax check ===" | tee -a diagnostics.txt
+          python -m compileall -q bot.py >> diagnostics.txt 2>&1
+          syntax_status=$?
+          echo "Python syntax exit code: ${syntax_status}" | tee -a diagnostics.txt
+
+          echo "" | tee -a diagnostics.txt
+          echo "=== Unit tests ===" | tee -a diagnostics.txt
           if [ -d tests ]; then
-            python -m unittest discover -s tests -p "test_*.py" -v
+            python -m unittest discover -s tests -p "test_*.py" -v >> diagnostics.txt 2>&1
+            tests_status=$?
           else
-            echo "No tests/ directory exists on this revision; skipping unit-test discovery."
+            echo "No tests/ directory exists on this revision; unit tests were not available." | tee -a diagnostics.txt
+            tests_status=0
+          fi
+          echo "Unit test exit code: ${tests_status}" | tee -a diagnostics.txt
+
+          echo "syntax_status=${syntax_status}" >> "$GITHUB_OUTPUT"
+          echo "tests_status=${tests_status}" >> "$GITHUB_OUTPUT"
+
+          cat diagnostics.txt
+          if [ "${syntax_status}" -ne 0 ] || [ "${tests_status}" -ne 0 ]; then
+            exit 1
+          fi
+
+      - name: Publish diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: starvex-diagnostics-${{ github.run_number }}
+          path: diagnostics.txt
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Add diagnostic summary
+        if: always()
+        env:
+          SYNTAX_STATUS: ${{ steps.checks.outputs.syntax_status }}
+          TESTS_STATUS: ${{ steps.checks.outputs.tests_status }}
+        run: |
+          {
+            echo "## STARVEX automated diagnostics"
+            echo ""
+            echo "- Python syntax exit code: ${SYNTAX_STATUS:-not reported}"
+            echo "- Unit test exit code: ${TESTS_STATUS:-not reported}"
+            echo "- Detailed output: downloadable workflow artifact `starvex-diagnostics-${{ github.run_number }}`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment result on same-repository pull requests
+        if: always() && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/github-script@v7
+        env:
+          SYNTAX_STATUS: ${{ steps.checks.outputs.syntax_status }}
+          TESTS_STATUS: ${{ steps.checks.outputs.tests_status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        with:
+          script: |
+            const marker = '<!-- starvex-ci-diagnostics:v1 -->';
+            const syntax = process.env.SYNTAX_STATUS || 'not reported';
+            const tests = process.env.TESTS_STATUS || 'not reported';
+            const failed = syntax !== '0' || tests !== '0';
+            const body = [
+              marker,
+              '## STARVEX automated diagnostics',
+              '',
+              failed ? '**Result: checks need attention.**' : '**Result: checks passed.**',
+              '',
+              `- Python syntax exit code: ${syntax}`,
+              `- Unit test exit code: ${tests}`,
+              `- [Open the full Actions run and diagnostic artifact](${process.env.RUN_URL})`,
+              '',
+              'This report is generated from actual command output. It diagnoses failures but does not modify application code.'
+            ].join('\n');
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100
+            });
+            const existing = comments.find(c =>
+              c.user?.type === 'Bot' && c.body?.includes(marker)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: existing.id, body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number, body
+              });
+            }
+
+      - name: Mark workflow failed when checks fail
+        if: always()
+        env:
+          SYNTAX_STATUS: ${{ steps.checks.outputs.syntax_status }}
+          TESTS_STATUS: ${{ steps.checks.outputs.tests_status }}
+        run: |
+          if [ "${SYNTAX_STATUS:-1}" -ne 0 ] || [ "${TESTS_STATUS:-1}" -ne 0 ]; then
+            echo "One or more checks failed. See the diagnostic artifact and PR comment."
+            exit 1
           fi

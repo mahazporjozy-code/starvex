@@ -1,0 +1,40 @@
+name: STARVEX AI Command Intake
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  handoff:
+    if: contains(github.event.issue.labels.*.name, 'ai-command')
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Post safe team hand-off checklist
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = [
+              "## STARVEX AI hand-off",
+              "",
+              "This issue is an intake record only. No code has been executed and no agent has been assumed to have run.",
+              "",
+              "1. **Claude (optional):** if the Claude GitHub App is enabled and responds here, comment:",
+              "   `@claude Analyze this task, work only on a feature branch, add tests, and open a PR. Do not merge or deploy.`",
+              "2. **Copilot Free:** ask Copilot Chat to review this issue/PR manually with repository context.",
+              "3. **ChatGPT:** ask ChatGPT to inspect this issue, the PR diff, and the actual Actions logs.",
+              "",
+              "Never post API keys, passwords, tokens, private keys, or customer credentials here.",
+              "No automatic merge or deployment is enabled."
+            ].join("\n");
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body
+            });

@@ -1,0 +1,61 @@
+name: STARVEX AI Command
+description: Submit one development task to the STARVEX AI team for coordinated analysis, implementation, and review.
+title: "[AI TASK] "
+labels:
+  - ai-command
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form as the single task intake for STARVEX. Do not include API keys, passwords, bot tokens, customer credentials, or other secrets.
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should the STARVEX team accomplish?
+      placeholder: Implement / improve / investigate ...
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Which features or files may be changed? What is out of scope?
+      placeholder: Allowed changes and explicit exclusions...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions that must be true when complete.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and safety
+      description: Things that must not change; include privacy, security, visual, or compatibility constraints.
+      placeholder: Never merge to main automatically. Do not expose secrets...
+    validations:
+      required: true
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk level
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: checkboxes
+    id: approvals
+    attributes:
+      label: Authorization
+      options:
+        - label: I authorize analysis and a proposed change on a separate branch. Merging and deployment still require my separate approval.
+          required: true

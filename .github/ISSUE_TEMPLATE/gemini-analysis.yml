@@ -1,7 +1,6 @@
 name: Gemini analysis report
 description: Submit an analysis-only report from Gemini for ChatGPT to verify
 title: "[GEMINI] "
-labels: ["gemini-analysis"]
 body:
   - type: markdown
     attributes:

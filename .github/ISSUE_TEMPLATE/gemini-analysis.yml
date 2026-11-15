@@ -1,0 +1,71 @@
+name: Gemini analysis report
+description: Submit an analysis-only report from Gemini for ChatGPT to verify
+title: "[GEMINI] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Analysis only.** Gemini must not edit, commit, or push code. Do not include secrets, tokens, customer data, or private NEXUS information.
+  - type: input
+    id: area
+    attributes:
+      label: Area reviewed
+      placeholder: e.g. Telegram bot order flow
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: textarea
+    id: findings
+    attributes:
+      label: Findings with exact file paths and line/function references
+      description: Separate each finding. Clearly mark assumptions when source evidence is unavailable.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Why it matters
+    validations:
+      required: true
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommended behavior (no code edits)
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Highest priority
+      options:
+        - critical
+        - high
+        - medium
+        - low
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Testable acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks, dependencies, and open questions
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence
+      options:
+        - high
+        - medium
+        - low
+    validations:
+      required: true

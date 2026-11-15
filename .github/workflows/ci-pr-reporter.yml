@@ -49,7 +49,7 @@ jobs:
               `- [Open the full Actions run and diagnostic artifact](${run.html_url})`,
               '',
               'This report comes from the completed GitHub Actions run. The reporter does not check out, execute, or modify pull-request code.'
-            ].join('\\n');
+            ].join('\n');
 
             const { owner, repo } = context.repo;
             const comments = await github.paginate(github.rest.issues.listComments, {

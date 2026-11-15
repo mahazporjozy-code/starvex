@@ -1,0 +1,45 @@
+name: STARVEX Bug Fix Request
+description: Submit a reproducible bug for diagnosis and a proposed fix on a separate branch.
+title: "[BUG FIX] "
+labels:
+  - ai-fix-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include passwords, API keys, bot tokens, private keys, or customer data. A request creates a tracked repair task; it does not authorize merging or deployment.
+  - type: textarea
+    id: observed
+    attributes:
+      label: What happened?
+      description: Include the exact error text, expected behavior, and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. ...\n2. ...\n3. ..."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Add a failing Actions run URL, relevant log excerpt, or screenshot description. Redact secrets.
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: "- [ ] Root cause identified\n- [ ] Fix proposed on a feature branch\n- [ ] Relevant tests pass"
+    validations:
+      required: true
+  - type: checkboxes
+    id: authorization
+    attributes:
+      label: Authorization
+      options:
+        - label: I authorize diagnosis and a proposed change on a separate branch. Merge and deployment require separate approval.
+          required: true

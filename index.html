@@ -49,12 +49,50 @@ body{background:#05091b}header{background:#0b1225;backdrop-filter:none}.hero,.pr
 .detail-panel{background:#10182b;border:1px solid #303b50;border-radius:23px;padding:20px;margin:0 0 16px}.detail-panel h3{font-size:20px;margin:0 0 12px}
 .detail-panel p{margin:0;color:#aeb8ca;font-size:14px;line-height:2.1}.detail-similar{display:flex;gap:12px;overflow-x:auto;padding:4px 0 12px}
 .detail-mini{flex:0 0 145px;background:#182238;border:1px solid #303b50;border-radius:18px;padding:13px;text-align:right;color:#fff}.detail-mini b{display:block;font-size:13px;line-height:1.8}.detail-mini span{display:block;color:#c2cada;font-size:12px;margin-top:8px}
+
+/* STARVEX V7 — command experience */
+:root{--gold:#d8b66b;--cyan:#39b9ee;--v7surface:#0d172b}
+body{background:radial-gradient(ellipse at 85% 0%,#173451 0,transparent 32%),radial-gradient(ellipse at 0% 30%,#251b43 0,transparent 28%),#05091b}
+header{border-bottom-color:#d8b66b35}
+.brand{background:linear-gradient(110deg,#fff5d6,#d8b66b 45%,#73caff);background-clip:text}
+.v7-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 2px 0;color:#aab9cf;font-size:10px}
+.v7-live{display:inline-flex;align-items:center;gap:7px;border:1px solid #31536a;border-radius:30px;padding:6px 10px;background:#0b2030}
+.v7-live i{width:7px;height:7px;border-radius:50%;background:#55d6a2;box-shadow:0 0 10px #55d6a2;display:inline-block}
+.v7-version{color:var(--gold);letter-spacing:1.5px;font-weight:900}
+.hero{margin-top:12px;min-height:205px;border-color:#b895554d;background:linear-gradient(115deg,#101e32,#11182e 55%,#211c3a);box-shadow:inset 0 1px #ffffff0a,0 16px 45px #0005}
+.hero h1{font-size:25px}.hero p{max-width:75%;line-height:2}
+.hero:after{content:"V7";position:absolute;left:17px;top:15px;font-size:47px;font-weight:900;letter-spacing:2px;color:#d8b66b18}
+.hero-art{color:#e4c77d;text-shadow:0 0 30px #d8b66b77}
+.v7-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:18px 0 25px}
+.v7-tile{border:1px solid #2b3b54;border-radius:19px;padding:14px;background:linear-gradient(145deg,#111e32,#0b1427);min-height:94px;text-align:right;color:#eef4ff}
+.v7-tile b{display:block;font-size:13px;margin:5px 0}.v7-tile small{display:block;color:#92a2bb;font-size:10px;line-height:1.8}.v7-tile em{font-style:normal;font-size:22px;color:var(--gold)}
+.v7-ai{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:right;border:1px solid #8b754b80;border-radius:20px;padding:15px;background:linear-gradient(110deg,#20233a,#14283b);color:white;margin:4px 0 22px}
+.v7-ai strong{display:block;font-size:14px}.v7-ai small{display:block;color:#b5c3d6;font-size:10px;margin-top:4px}.v7-ai span{font-size:26px;color:#e5c77c}
+.v7-overlay{position:fixed;inset:0;z-index:90;background:#020611e8;display:none;align-items:flex-end;justify-content:center;padding:12px}
+.v7-overlay.open{display:flex}.v7-panel{width:min(100%,620px);max-height:85dvh;overflow:auto;border:1px solid #8b754b80;border-radius:25px;background:#101a2e;padding:20px;box-shadow:0 20px 70px #000b}
+.v7-options{display:grid;gap:9px;margin-top:14px}.v7-option{border:1px solid #34445f;border-radius:14px;background:#17243a;color:#eef4ff;padding:12px;text-align:right;font:inherit;font-size:13px}
+.v7-answer{border:1px solid #34445f;background:#0a1427;border-radius:16px;padding:14px;color:#c6d2e5;font-size:13px;line-height:2;margin-top:14px;min-height:55px}
+.product{border-color:#34445e}.product:focus-within{border-color:#d8b66b}
+.art{border:1px solid #ffffff12}.buy{background:linear-gradient(110deg,#d5ad61,#b9854b);color:#111827}
+.bottomnav{border-color:#8d784e70}.navbtn.active{color:#e5c77c;background:#273047}
+.support{border-color:#d8b66b88}
+footer{line-height:2}
+@media(min-width:600px){.v7-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
 </style>
 </head>
 <body>
 <header><button class="iconbtn" aria-label="جستجو" onclick="openSearch()">⌕</button><div class="brand">STARVEX<small>PREMIUM DIGITAL EXPERIENCE</small></div><button class="iconbtn" onclick="toast('به‌زودی بخش اعلان‌ها فعال می‌شود')">♧</button></header>
 <main class="wrap">
-<section class="hero"><h1>به دنیای STARVEX خوش آمدید</h1><p>تجربه‌ای متفاوت از خدمات دیجیتال تلگرام</p><button class="cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">مشاهده محصولات ←</button><div class="hero-art">✦</div></section>
+<div class="v7-topline"><span class="v7-live"><i></i> فروشگاه در دسترس است</span><span class="v7-version">STARVEX · V7</span></div>
+<section class="hero"><h1>به نسل هفتم STARVEX خوش آمدید</h1><p>یک تجربه دیجیتال هوشمند، یکپارچه و ساده برای خدمات تلگرام</p><button class="cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">مشاهده محصولات ←</button><div class="hero-art">✦</div></section>
+<section class="v7-grid" aria-label="خدمات STARVEX">
+<button class="v7-tile" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><em>✦</em><b>فروشگاه دیجیتال</b><small>استارز، بوست و پریمیوم</small></button>
+<button class="v7-tile" onclick="openSearch()"><em>⌕</em><b>جست‌وجوی سریع</b><small>پیدا کردن محصول دلخواه</small></button>
+<button class="v7-tile" onclick="openCart()"><em>▣</em><b>سبد خرید</b><small>مدیریت اقلام انتخاب‌شده</small></button>
+<button class="v7-tile" onclick="openFavorites()"><em>♡</em><b>علاقه‌مندی‌ها</b><small>محصولات ذخیره‌شده روی دستگاه</small></button>
+</section>
+<button class="v7-ai" onclick="openAI()"><span><strong>STARVEX AI · دستیار راهنمای خرید</strong><small>برای انتخاب سرویس مناسب، راهنمایی بگیر</small></span><span>✧</span></button>
 <section><div class="section-title">پیشنهادهای ویژه <span>اسلاید کنید ←</span></div><div class="slider" id="slider"><article class="slide"><h3>⭐ استارز تلگرام</h3><p>خرید استارز با تحویل سریع و مطمئن</p><b>شروع از ۴٬۵۰۰ تومان</b><i>✦</i></article><article class="slide"><h3>⚡ بوست تلگرام</h3><p>ارتقای سطح کانال و گروه شما</p><b>پلن‌های متنوع</b><i>ϟ</i></article><article class="slide"><h3>💎 تلگرام پریمیوم</h3><p>امکانات ویژه تلگرام را تجربه کنید</p><b>انتخاب اشتراک</b><i>◇</i></article></div><div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></section>
 <section id="products"><div class="section-title">پربازدیدترین محصولات <span>همه محصولات</span></div><div class="categories"><button class="chip active" data-filter="all">همه</button><button class="chip" data-filter="stars">استارز</button><button class="chip" data-filter="boost">بوست</button><button class="chip" data-filter="premium">پریمیوم</button></div>
 <div class="cards">
@@ -85,7 +123,7 @@ function details(t,d){
  if(show){const unit=isStars?4500:(isBoost?prices[t]:premiumPrices[t]);document.getElementById('detailPrice').innerHTML=(unit||0).toLocaleString('fa-IR')+' <small>تومان</small>';
  document.getElementById('detailTabs').style.display='grid';document.getElementById('specsText').textContent=isStars?'نوع محصول: Telegram Stars | حداقل سفارش: ۵۰ عدد | قیمت هر عدد: ۴٬۵۰۰ تومان':isBoost?'نوع محصول: Telegram Boost | حداقل سفارش: ۱۰ عدد':'نوع محصول: Telegram Premium | مدت اشتراک: '+(t.includes('۳ ماهه')?'۳ ماه':t.includes('۶ ماهه')?'۶ ماه':'۱ سال')+' | شامل قابلیت‌های اختصاصی پریمیوم تلگرام';
  document.getElementById('descriptionText').textContent=isPremium?'با تلگرام پریمیوم تجربه‌ای کامل‌تر از تلگرام داشته باشید: ارسال فایل تا حجم ۴ گیگابایت برای هر فایل، دانلود سریع‌تر با توجه به سرعت اتصال، استفاده از استیکرها و واکنش‌های اختصاصی، تبدیل پیام صوتی به متن، مدیریت پیشرفته‌تر گفتگوها، حذف تبلیغات رسمی در کانال‌های عمومیِ پشتیبانی‌شده، نشان پریمیوم کنار نام و امکانات بیشتر برای استوری و ظاهر پروفایل. برخی قابلیت‌ها بسته به نسخه برنامه و منطقه در دسترس هستند.':d;document.getElementById('similarItems').innerHTML='<div class="detail-mini"><b>⭐ استارز تلگرام</b><span>۴٬۵۰۰ تومان / عدد</span></div><div class="detail-mini"><b>⚡ بوست تلگرام</b><span>از ۵۹٬۰۰۰ تومان</span></div><div class="detail-mini"><b>💎 تلگرام پریمیوم</b><span>از ۳٬۵۲۵٬۰۰۰ تومان</span></div>';switchDetailTab('specs');}
- document.getElementById('orderControls').style.display=activeOrder?'block':'none';document.getElementById('orderAction').style.display='none';
+ document.getElementById('orderControls').style.display=activeOrder?'block':'none';
  if(activeOrder){const q=document.getElementById('orderQty');q.min=activeOrder.min;q.max=activeOrder.max;q.value=activeOrder.min;document.getElementById('qtyHint').textContent='حداقل '+activeOrder.min.toLocaleString('fa-IR')+' و حداکثر '+activeOrder.max.toLocaleString('fa-IR')+' عدد';updateTotal();}
  document.getElementById('modal').classList.add('open');
 }
@@ -94,7 +132,11 @@ function updateTotal(){if(!activeOrder)return;let q=document.getElementById('ord
 function changeQty(delta){if(!activeOrder)return;let q=document.getElementById('orderQty');q.value=Math.max(activeOrder.min,Math.min(activeOrder.max,(Number(q.value)||activeOrder.min)+delta));updateTotal();}
 document.getElementById('orderQty').addEventListener('input',updateTotal);
 function closeModal(){document.getElementById('modal').classList.remove('open')}
-function favorite(b){b.textContent=b.textContent==='♡'?'♥':'♡';b.style.color=b.textContent==='♥'?'#f17a9d':'#dce7f9';toast(b.textContent==='♥'?'به علاقه‌مندی‌ها اضافه شد':'از علاقه‌مندی‌ها حذف شد')}
+let v7Favorites=JSON.parse(localStorage.getItem('starvex_v7_favorites')||'[]');
+function favorite(b){const card=b.closest('.product'),name=card?.querySelector('h3')?.textContent||'محصول';const on=b.textContent==='♡';b.textContent=on?'♥':'♡';b.style.color=on?'#f17a9d':'#dce7f9';if(on&&!v7Favorites.includes(name))v7Favorites.push(name);if(!on)v7Favorites=v7Favorites.filter(x=>x!==name);localStorage.setItem('starvex_v7_favorites',JSON.stringify(v7Favorites));toast(on?'به علاقه‌مندی‌ها اضافه شد':'از علاقه‌مندی‌ها حذف شد')}
+function openFavorites(){const names=v7Favorites;document.getElementById('favoritesList').innerHTML=names.length?names.map(n=>'<div class="v3-row"><b>'+n+'</b></div>').join(''):'<p class="v3-muted">هنوز محصولی ذخیره نکرده‌اید.</p>';document.getElementById('favoritesOverlay').classList.add('open')}
+function openAI(){document.getElementById('aiOverlay').classList.add('open');document.getElementById('aiAnswer').textContent='سلام! من راهنمای خرید STARVEX هستم. یکی از موضوع‌ها را انتخاب کن.'}
+function askAI(kind){const answers={stars:'برای خرید Telegram Stars، محصول استارز را انتخاب کن. حداقل سفارش فعلی ۵۰ عدد و قیمت هر عدد ۴٬۵۰۰ تومان است.',boost:'برای ارتقای کانال یا گروه، پلن‌های بوست ۱۴، ۳۰، ۹۰ و ۱۸۰ روزه در فروشگاه موجودند. حداقل سفارش بوست ۱۰ عدد است.',premium:'برای امکانات اشتراک پریمیوم، پلن‌های ۳ ماهه، ۶ ماهه و یک‌ساله را مقایسه کن. توضیحات هر پلن در صفحه محصول آمده است.',support:'برای پرسش درباره سفارش یا خدمات، با پشتیبانی رسمی STARVEX در تلگرام ارتباط بگیر.'};document.getElementById('aiAnswer').textContent=answers[kind]||'لطفاً یکی از موضوع‌ها را انتخاب کن.'}
 document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.product').forEach(p=>p.style.display=b.dataset.filter==='all'||p.dataset.kind===b.dataset.filter?'grid':'none')}));
 let slider=document.getElementById('slider');setInterval(()=>{let w=slider.querySelector('.slide').getBoundingClientRect().width+12;slider.scrollBy({left:document.documentElement.dir==='rtl'?-w:w,behavior:'smooth'});if(Math.abs(slider.scrollLeft)>=slider.scrollWidth-slider.clientWidth-8)slider.scrollTo({left:0,behavior:'smooth'})},4200);
 </script>
@@ -143,5 +185,10 @@ function closeV3(id){document.getElementById(id).classList.remove('open')}
 function filterSearch(q){let v=q.trim().toLowerCase();document.querySelectorAll('.product').forEach(p=>p.style.display=p.innerText.toLowerCase().includes(v)?'grid':'none');document.getElementById('products').scrollIntoView({behavior:'smooth'})}
 function checkoutCart(){if(!v3Cart.length){toast('سبد خرید خالی است');return}let total=v3Cart.reduce((a,x)=>a+x.qty*x.unit,0);let lines=v3Cart.map(x=>x.name+' | تعداد: '+x.qty+' | '+money(x.qty*x.unit)).join('\n');let msg='سلام، سفارش جدید از فروشگاه STARVEX:\n'+lines+'\nمبلغ کل: '+money(total);window.open('https://t.me/StarvexEmpire24Bot?text='+encodeURIComponent(msg),'_blank')}
 renderCart();
+</script>
+<div class="v7-overlay" id="aiOverlay" onclick="if(event.target===this)closeV3('aiOverlay')"><section class="v7-panel"><div class="v3-head"><h2>✧ دستیار STARVEX</h2><button class="v3-close" onclick="closeV3('aiOverlay')">✕</button></div><p class="v3-muted">راهنمای خرید سریع بر اساس اطلاعات محصولات فروشگاه. این نسخه هنوز به مدل هوش مصنوعی یا سرور متصل نیست.</p><div class="v7-options"><button class="v7-option" onclick="askAI('stars')">⭐ راهنمای خرید استارز</button><button class="v7-option" onclick="askAI('boost')">⚡ راهنمای خرید بوست</button><button class="v7-option" onclick="askAI('premium')">💎 راهنمای تلگرام پریمیوم</button><button class="v7-option" onclick="askAI('support')">🎧 ارتباط با پشتیبانی</button></div><div class="v7-answer" id="aiAnswer">در حال آماده‌سازی راهنما...</div></section></div>
+<div class="v7-overlay" id="favoritesOverlay" onclick="if(event.target===this)closeV3('favoritesOverlay')"><section class="v7-panel"><div class="v3-head"><h2>علاقه‌مندی‌های من</h2><button class="v3-close" onclick="closeV3('favoritesOverlay')">✕</button></div><div id="favoritesList"></div><p class="v3-muted">این فهرست فقط روی همین دستگاه ذخیره می‌شود.</p></section></div>
+<script>
+document.querySelectorAll('.product').forEach(card=>{const name=card.querySelector('h3')?.textContent;if(v7Favorites.includes(name)){const b=card.querySelector('.heart');if(b){b.textContent='♥';b.style.color='#f17a9d'}}});
 </script>
 </body></html>

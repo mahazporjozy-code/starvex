@@ -80,12 +80,40 @@ footer{line-height:2}
 @media(min-width:600px){.v7-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
-</head>
+<style>
+/* STARVEX V18 OMEGA */
+:root{--omega-gold:#e4c477;--omega-blue:#54c9ff;--omega-bg:#05070d}
+body{background:radial-gradient(ellipse at 85% -8%,#17364b 0,transparent 35%),radial-gradient(ellipse at 5% 20%,#302044 0,transparent 28%),#05070d}
+header{background:#080d18;border-bottom:1px solid #d8b66b55}
+.brand{background:linear-gradient(105deg,#fff8df 4%,#e4c477 43%,#7ddcff 92%);background-clip:text}
+.v7-version{color:var(--omega-gold);letter-spacing:1.2px}
+.hero{border:1px solid #d8b66b88;background:linear-gradient(118deg,#111a27 0%,#11182a 54%,#172b3b 100%);box-shadow:0 18px 50px #0008,inset 0 1px #fff1}
+.hero:before{background:#e4c47718}
+.hero:after{content:"OMEGA";font-size:35px;letter-spacing:3px;color:#e4c47720}
+.cta,.buy{background:linear-gradient(110deg,#e5c477,#b88745);color:#10131b;box-shadow:0 7px 20px #d8b66b20}
+.product,.v7-tile,.v7-panel,.v3-panel{background:linear-gradient(145deg,#111b29,#0b1220);border-color:#4b493c}
+.product:focus-within,.product:hover{border-color:#c9aa68}
+.bottomnav{background:#0c1421f5;border-color:#9b8052}
+.navbtn.active{background:#263044;color:#f0d18a}
+.support{border-color:#d8b66b;background:#172332}
+.omega-pulse{margin:22px 0 26px;padding:17px;border:1px solid #a78b5266;border-radius:23px;background:linear-gradient(130deg,#111a28,#0b1422);box-shadow:0 15px 35px #0005}
+.omega-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+.omega-head b{font-size:15px;letter-spacing:1px;color:#f0d18a}
+.omega-head small{font-size:10px;color:#91a4b8}
+.omega-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.omega-stat{padding:12px;border:1px solid #344357;border-radius:15px;background:#0b1421}
+.omega-stat span{display:block;color:#9eafc2;font-size:10px}
+.omega-stat strong{display:block;margin-top:5px;font-size:17px;color:#f3d48c}
+.omega-note{margin:12px 0 0;color:#9eafc2;font-size:10px;line-height:1.9}
+.omega-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e6b65e;margin-left:6px}
+@media(min-width:600px){.omega-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style></head>
 <body>
 <header><button class="iconbtn" aria-label="جستجو" onclick="openSearch()">⌕</button><div class="brand">STARVEX<small>PREMIUM DIGITAL EXPERIENCE</small></div><button class="iconbtn" onclick="toast('به‌زودی بخش اعلان‌ها فعال می‌شود')">♧</button></header>
 <main class="wrap">
-<div class="v7-topline"><span class="v7-live"><i></i> فروشگاه در دسترس است</span><span class="v7-version">STARVEX · V7</span></div>
-<section class="hero"><h1>به نسل هفتم STARVEX خوش آمدید</h1><p>یک تجربه دیجیتال هوشمند، یکپارچه و ساده برای خدمات تلگرام</p><button class="cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">مشاهده محصولات ←</button><div class="hero-art">✦</div></section>
+<div class="v7-topline"><span class="v7-live"><i></i> فروشگاه در دسترس است</span><span class="v7-version">STARVEX · V18 OMEGA</span></div>
+<section class="hero"><h1>به دنیای STARVEX OMEGA خوش آمدید</h1><p>نسل تازه تجربه خرید دیجیتال؛ سریع، شفاف و در دسترس روی موبایل</p><button class="cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">مشاهده محصولات ←</button><div class="hero-art">✦</div></section>
 <section class="v7-grid" aria-label="خدمات STARVEX">
 <button class="v7-tile" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><em>✦</em><b>فروشگاه دیجیتال</b><small>استارز، بوست و پریمیوم</small></button>
 <button class="v7-tile" onclick="openSearch()"><em>⌕</em><b>جست‌وجوی سریع</b><small>پیدا کردن محصول دلخواه</small></button>
@@ -93,7 +121,16 @@ footer{line-height:2}
 <button class="v7-tile" onclick="openFavorites()"><em>♡</em><b>علاقه‌مندی‌ها</b><small>محصولات ذخیره‌شده روی دستگاه</small></button>
 </section>
 <button class="v7-ai" onclick="openAI()"><span><strong>STARVEX AI · دستیار راهنمای خرید</strong><small>برای انتخاب سرویس مناسب، راهنمایی بگیر</small></span><span>✧</span></button>
-<section><div class="section-title">پیشنهادهای ویژه <span>اسلاید کنید ←</span></div><div class="slider" id="slider"><article class="slide"><h3>⭐ استارز تلگرام</h3><p>خرید استارز با تحویل سریع و مطمئن</p><b>شروع از ۴٬۵۰۰ تومان</b><i>✦</i></article><article class="slide"><h3>⚡ بوست تلگرام</h3><p>ارتقای سطح کانال و گروه شما</p><b>پلن‌های متنوع</b><i>ϟ</i></article><article class="slide"><h3>💎 تلگرام پریمیوم</h3><p>امکانات ویژه تلگرام را تجربه کنید</p><b>انتخاب اشتراک</b><i>◇</i></article></div><div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></section>
+<section class="omega-pulse" aria-label="وضعیت فروشگاه STARVEX">
+<div class="omega-head"><b>STARVEX PULSE · OMEGA</b><small><i class="omega-dot"></i>وضعیت محلی فروشگاه</small></div>
+<div class="omega-grid">
+<div class="omega-stat"><span>محصولات قابل مشاهده</span><strong id="omegaProducts">—</strong></div>
+<div class="omega-stat"><span>اقلام سبد خرید</span><strong id="omegaCart">—</strong></div>
+<div class="omega-stat"><span>علاقه‌مندی‌ها</span><strong id="omegaFavorites">—</strong></div>
+<div class="omega-stat"><span>وضعیت اتصال سرور</span><strong style="font-size:13px">متصل نیست</strong></div>
+</div>
+<p class="omega-note">آمار این بخش از اطلاعات همین مرورگر محاسبه می‌شود. پرداخت آنلاین، حساب مشتری و ثبت سفارش سمت سرور هنوز فعال نیستند.</p>
+</section><section><div class="section-title">پیشنهادهای ویژه <span>اسلاید کنید ←</span></div><div class="slider" id="slider"><article class="slide"><h3>⭐ استارز تلگرام</h3><p>خرید استارز با تحویل سریع و مطمئن</p><b>شروع از ۴٬۵۰۰ تومان</b><i>✦</i></article><article class="slide"><h3>⚡ بوست تلگرام</h3><p>ارتقای سطح کانال و گروه شما</p><b>پلن‌های متنوع</b><i>ϟ</i></article><article class="slide"><h3>💎 تلگرام پریمیوم</h3><p>امکانات ویژه تلگرام را تجربه کنید</p><b>انتخاب اشتراک</b><i>◇</i></article></div><div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></section>
 <section id="products"><div class="section-title">پربازدیدترین محصولات <span>همه محصولات</span></div><div class="categories"><button class="chip active" data-filter="all">همه</button><button class="chip" data-filter="stars">استارز</button><button class="chip" data-filter="boost">بوست</button><button class="chip" data-filter="premium">پریمیوم</button></div>
 <div class="cards">
 <article class="product" data-kind="stars"><div class="info"><h3>استارز تلگرام به ازای هر عدد</h3><div class="price">۴٬۵۰۰ <span class="currency">تومان</span></div><div class="buyrow"><button class="buy" onclick="details('استارز تلگرام','خرید استارز تلگرام با حداقل سفارش ۵۰ عدد. قیمت هر عدد ۴٬۵۰۰ تومان.')">مشاهده محصول</button><button class="heart" onclick="favorite(this)">♡</button></div></div><div class="art stars"><div class="product-avatar">⭐</div><div class="glyph">★</div><div class="artlabel">Telegram<br>Stars</div></div></article>
@@ -191,4 +228,19 @@ renderCart();
 <script>
 document.querySelectorAll('.product').forEach(card=>{const name=card.querySelector('h3')?.textContent;if(v7Favorites.includes(name)){const b=card.querySelector('.heart');if(b){b.textContent='♥';b.style.color='#f17a9d'}}});
 </script>
-</body></html>
+<script>
+function refreshOmegaPulse(){
+ const p=document.querySelectorAll('.product').length;
+ const cart=Array.isArray(v3Cart)?v3Cart.reduce((n,x)=>n+(Number(x.qty)||0),0):0;
+ const fav=Array.isArray(v7Favorites)?v7Favorites.length:0;
+ const put=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=Number(val).toLocaleString('fa-IR')};
+ put('omegaProducts',p);put('omegaCart',cart);put('omegaFavorites',fav);
+}
+const omegaPulseObserver=new MutationObserver(refreshOmegaPulse);
+document.addEventListener('DOMContentLoaded',()=>{const root=document.querySelector('.cards');if(root)omegaPulseObserver.observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['style']});refreshOmegaPulse()});
+const omegaOriginalSaveCart=saveCart;
+saveCart=function(){omegaOriginalSaveCart();refreshOmegaPulse()};
+const omegaOriginalFavorite=favorite;
+favorite=function(b){omegaOriginalFavorite(b);refreshOmegaPulse()};
+refreshOmegaPulse();
+</script></body></html>

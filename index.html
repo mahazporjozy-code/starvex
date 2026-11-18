@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#070b1b"><title>STARVEX V40 HYPERION | Premium Digital Experience</title>
+<meta name="theme-color" content="#070b1b"><title>STARVEX V41 HYPERION | Demo Login</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 :root{--bg:#070b1b;--panel:#111a2e;--line:#29364d;--text:#f2f5ff;--muted:#8994aa;--blue:#168ee8;--pink:#e96d91}
@@ -147,7 +147,7 @@ footer{color:#9c8d6c;letter-spacing:1px}
 <body>
 <header><button class="iconbtn" aria-label="جستجو" onclick="openSearch()">⌕</button><div class="brand">STARVEX<small>PREMIUM DIGITAL EXPERIENCE</small></div><button class="iconbtn" onclick="toast('به‌زودی بخش اعلان‌ها فعال می‌شود')">♧</button></header>
 <main class="wrap">
-<div class="v7-topline"><span class="v7-live"><i></i> فروشگاه در دسترس است</span><span class="v7-version">STARVEX · V40 HYPERION</span></div>
+<div class="v7-topline"><span class="v7-live"><i></i> فروشگاه در دسترس است</span><span class="v7-version">STARVEX · V41 HYPERION</span></div>
 <section class="hero"><h1>به جهان STARVEX HYPERION خوش آمدید</h1><p>تجربه‌ای ممتاز از خدمات دیجیتال؛ طراحی دقیق، انتخاب شفاف و تجربه‌ای روان روی موبایل</p><button class="cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">مشاهده محصولات ←</button><div class="hero-art">✦</div></section>
 <section class="v7-grid" aria-label="خدمات STARVEX">
 <button class="v7-tile" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><em>✦</em><b>فروشگاه دیجیتال</b><small>استارز، بوست و پریمیوم</small></button>
@@ -229,7 +229,7 @@ let slider=document.getElementById('slider');setInterval(()=>{let w=slider.query
 </style>
 <div class="v3-overlay" id="cartOverlay" onclick="if(event.target===this)closeV3('cartOverlay')"><section class="v3-panel"><div class="v3-head"><h2>سبد خرید STARVEX</h2><button class="v3-close" onclick="closeV3('cartOverlay')">✕</button></div><div id="cartItems"></div><div class="v3-total"><span>مبلغ کل</span><strong id="cartTotal">۰ تومان</strong></div><p class="v3-muted" style="margin-top:16px">ثبت سفارش فعلاً غیرفعال است. سبد خرید شما برای مراجعه بعدی در همین دستگاه ذخیره می‌شود.</p></section></div>
 <div class="v3-overlay" id="searchOverlay" onclick="if(event.target===this)closeV3('searchOverlay')"><section class="v3-panel"><div class="v3-head"><h2>جست‌وجوی محصولات</h2><button class="v3-close" onclick="closeV3('searchOverlay')">✕</button></div><input class="v3-input" id="searchInput" placeholder="نام محصول را بنویسید..." oninput="filterSearch(this.value)"><p class="v3-muted">نتایج در همین صفحه فیلتر می‌شوند.</p></section></div>
-<div class="v3-overlay" id="accountOverlay" onclick="if(event.target===this)closeV3('accountOverlay')"><section class="v3-panel"><div class="v3-head"><h2>حساب کاربری</h2><button class="v3-close" onclick="closeV3('accountOverlay')">✕</button></div><p class="v3-muted">برای پیگیری سفارش و تکمیل خرید، از طریق پشتیبانی STARVEX اقدام کنید. حساب کاربری و تاریخچه سفارش متصل به سرور هنوز راه‌اندازی نشده است.</p><button class="v3-primary" onclick="window.open('https://t.me/StarvexMahaz','_blank')">ارتباط با پشتیبانی</button></section></div>
+<div class="v3-overlay" id="accountOverlay" onclick="if(event.target===this)closeV3('accountOverlay')"><section class="v3-panel"><div class="v3-head"><h2>ورود به حساب STARVEX</h2><button class="v3-close" onclick="closeV3('accountOverlay')">✕</button></div><div id="demoLoginStart"><p class="v3-muted">برای آزمایش روند ورود، شماره موبایل را وارد کنید. این نسخه آزمایشی است و پیامک واقعی ارسال نمی‌کند.</p><label class="v3-muted" for="demoPhone">شماره موبایل</label><input class="v3-input" id="demoPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+98912XXXXXXX" maxlength="18" style="margin-top:8px"><button class="v3-primary" onclick="demoSendCode()">دریافت کد آزمایشی</button></div><div id="demoLoginCode" hidden><p class="v3-muted">کد آزمایشی را وارد کنید. در این نسخه کد ثابت زیر فقط برای تست است:</p><div style="font-size:25px;letter-spacing:8px;text-align:center;color:#f2c66d;font-weight:900;padding:12px">246810</div><input class="v3-input" id="demoOtp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="کد ۶ رقمی"><button class="v3-primary" onclick="demoVerifyCode()">تأیید و ورود</button><button class="v3-close" style="width:100%;margin-top:10px" onclick="demoBack()">تغییر شماره</button></div><div id="demoLoginDone" hidden><h3 style="color:#f2c66d">ورود آزمایشی موفق بود</h3><p class="v3-muted" id="demoWelcome"></p><p class="v3-muted">شماره شما در دیتابیس ذخیره نشده و فقط تا پایان این نشست در حافظه صفحه نگه‌داری می‌شود. برای ورود واقعی باید Supabase Auth و سرویس پیامک متصل شوند.</p><button class="v3-primary" onclick="demoLogout()">خروج</button></div><p class="v3-muted" style="margin-top:14px">حریم خصوصی: در حالت آزمایشی شماره موبایل به سرور ارسال یا در مرورگر ذخیره نمی‌شود.</p></section></div>
 <script>
 let v3Cart=JSON.parse(localStorage.getItem('starvex_v3_cart')||'[]');
 function money(n){return Number(n||0).toLocaleString('fa-IR')+' تومان'}
@@ -252,6 +252,11 @@ function cartChange(i,d){let x=v3Cart[i];x.qty=Math.max(x.min,Math.min(x.max,x.q
 function cartRemove(i){v3Cart.splice(i,1);saveCart()}
 function openCart(){renderCart();document.getElementById('cartOverlay').classList.add('open')}
 function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(()=>document.getElementById('searchInput').focus(),100)}
+let demoPhoneInMemory='';
+function demoSendCode(){const raw=(document.getElementById('demoPhone').value||'').trim();const digits=raw.replace(/[^0-9]/g,'');if(digits.length<10||digits.length>15){toast('شماره موبایل را با فرمت معتبر وارد کنید');return}demoPhoneInMemory=raw;document.getElementById('demoLoginStart').hidden=true;document.getElementById('demoLoginCode').hidden=false;document.getElementById('demoOtp').value='';toast('کد آزمایشی آماده است؛ پیامکی ارسال نشد')}
+function demoVerifyCode(){if((document.getElementById('demoOtp').value||'').trim()!=='246810'){toast('کد آزمایشی نادرست است');return}document.getElementById('demoLoginCode').hidden=true;document.getElementById('demoLoginDone').hidden=false;document.getElementById('demoWelcome').textContent='شما با شماره '+demoPhoneInMemory+' وارد حالت نمایشی شده‌اید.';}
+function demoBack(){demoPhoneInMemory='';document.getElementById('demoLoginCode').hidden=true;document.getElementById('demoLoginStart').hidden=false}
+function demoLogout(){demoPhoneInMemory='';document.getElementById('demoLoginDone').hidden=true;document.getElementById('demoLoginStart').hidden=false;document.getElementById('demoPhone').value='';closeV3('accountOverlay')}
 function openAccount(){document.getElementById('accountOverlay').classList.add('open')}
 function closeV3(id){document.getElementById(id).classList.remove('open')}
 function filterSearch(q){let v=q.trim().toLowerCase();document.querySelectorAll('.product').forEach(p=>p.style.display=p.innerText.toLowerCase().includes(v)?'grid':'none');document.getElementById('products').scrollIntoView({behavior:'smooth'})}
